@@ -50,8 +50,8 @@ print_ok () {
 
 prerequisites () {
 	echo -n "Installing prerequisites..."
-	run_cmd "pacman -Syu --no-confirm"
-	run_cmd "pacman -S --no-confirm gdisk zfsutils-linux dosfstools btrfs-progs"
+	run_cmd "pacman -Syu --noconfirm"
+	run_cmd "pacman -S --noconfirm gdisk zfsutils-linux dosfstools btrfs-progs"
 	print_ok
 }
 
