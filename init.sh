@@ -76,7 +76,6 @@ partition () {
 	do
 		run_cmd "wipefs -a /dev/disk/by-id/${DISKS[i]}"
 		run_cmd "sgdisk --zap-all /dev/disk/by-id/${DISKS[i]}"
-		sleep 2
 		run_cmd "sgdisk -g /dev/disk/by-id/${DISKS[i]}"
 		run_cmd "partprobe"
 
