@@ -51,7 +51,15 @@ print_ok () {
 prerequisites () {
 	echo -n "Installing prerequisites..."
 	run_cmd "pacman -Syu --noconfirm"
-	run_cmd "pacman -S --noconfirm gdisk zfs-utils dosfstools btrfs-progs"
+
+	# Required Tools
+	run_cmd "pacman -S --noconfirm gdisk dosfstools btrfs-progs"
+
+	# Install yay
+	git clone https://aur.archlinux.org/yay-bin.git
+	cd yay-bin
+	makepkg -si
+	yay -S zfs-linux-lts
 	print_ok
 }
 
