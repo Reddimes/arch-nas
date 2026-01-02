@@ -1,5 +1,6 @@
 #!/bin/bash
 
+pacman -S git
 git clone --depth 1 https://github.com/Reddimes/arch-nas.git &> /dev/null
 cd arch-nas
 sudo ./init.sh
