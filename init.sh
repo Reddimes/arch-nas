@@ -76,6 +76,7 @@ partition () {
 	do
 		run_cmd "wipefs -a /dev/disk/by-id/${DISKS[i]}"
 		run_cmd "sgdisk --zap-all /dev/disk/by-id/${DISKS[i]}"
+		sleep 2
 		run_cmd "sgdisk -g /dev/disk/by-id/${DISKS[i]}"
 		run_cmd "partprobe"
 
@@ -85,7 +86,7 @@ partition () {
 
 		run_cmd "sgdisk -n2:0:$PARTSIZE -t2:8300 /dev/disk/by-id/${DISKS[i]}"
 		sleep 1
-		run_cmd "mkfs.btrfs /dev/disk/by-id/${DISKS[i]}-part2"
+		run_cmd "mkfs.btrfs -f /dev/disk/by-id/${DISKS[i]}-part2"
 		run_cmd "sgdisk -n3:0:0 -t3:BF00 /dev/disk/by-id/${DISKS[i]}"
 	done
 
