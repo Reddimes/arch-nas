@@ -58,7 +58,7 @@ prerequisites () {
 	# Install yay
 	git clone https://aur.archlinux.org/yay-bin.git
 	cd yay-bin
-	su -s "makepkg -si" nobody
+	su -u nobody makepkg -si
 	yay -S zfs-linux-lts
 	print_ok
 }
