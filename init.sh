@@ -50,8 +50,6 @@ print_ok () {
 
 prerequisites () {
 	echo -n "Installing prerequisites..."
-	run_cmd "pacman -Syu --noconfirm"
-
 	# Required Tools
 	run_cmd "pacman -S --noconfirm gdisk dosfstools btrfs-progs"
 
