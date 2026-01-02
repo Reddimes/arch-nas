@@ -50,7 +50,8 @@ print_ok () {
 
 prerequisites () {
 	echo -n "Installing prerequisites..."
-	run_cmd "apt install --yes debootstrap gdisk zfsutils-linux dosfstools btrfs-progs"
+	run_cmd "pacman -Syu --no-confrim"
+	run_cmd "pacman -S --no-confirm gdisk zfsutils-linux dosfstools btrfs-progs"
 	print_ok
 }
 
