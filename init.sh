@@ -56,9 +56,10 @@ prerequisites () {
 	run_cmd "pacman -S --noconfirm gdisk dosfstools btrfs-progs"
 
 	# Install yay
+	run_cmd "pacman -S --noconfirm --needed base-devel"
 	git clone https://aur.archlinux.org/yay-bin.git
 	cd yay-bin
-	su "makepkg -si" nobody
+	su nobody makepkg -si
 	yay -S zfs-linux-lts
 	print_ok
 }
