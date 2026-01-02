@@ -7,7 +7,7 @@ I Personally used the instance from this link: https://ubuntu.com/download/serve
 
 Here is the command you need to get this started.
 ```
-bash <(wget -qO- https://raw.githubusercontent.com/Reddimes/arch-nas/refs/heads/main/tools/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/Reddimes/arch-nas/refs/heads/main/tools/install.sh)
 ```
 
 ## Custom Install
