@@ -58,7 +58,7 @@ prerequisites () {
 	# Install yay
 	git clone https://aur.archlinux.org/yay-bin.git
 	cd yay-bin
-	makepkg -si
+	su -s "makepkg -si" nobody
 	yay -S zfs-linux-lts
 	print_ok
 }
@@ -76,6 +76,7 @@ partition () {
 	do
 		run_cmd "wipefs -a /dev/disk/by-id/${DISKS[i]}"
 		run_cmd "sgdisk --zap-all /dev/disk/by-id/${DISKS[i]}"
+		sleep 1
 
 		run_cmd "sgdisk -n1:1M:+1G -t1:EF00 /dev/disk/by-id/${DISKS[i]}"
 		sleep 1
